@@ -801,7 +801,7 @@ else # OPENJDK_TARGET_OS not windows
       EXTRA_HEADER_DIRS := \
           include \
           common/awt, \
-      LDFLAGS := $(LDFLAGS_JDKLIB) \
+      LDFLAGS := $(subst -Wl$(COMMA)-z$(COMMA)defs,,$(LDFLAGS_JDKLIB)) \
           $(call SET_SHARED_LIBRARY_ORIGIN), \
       LDFLAGS_unix := -L$(INSTALL_LIBRARIES_HERE), \
       LDFLAGS_macosx := -Wl$(COMMA)-rpath$(COMMA)@loader_path, \
